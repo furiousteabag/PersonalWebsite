@@ -1,37 +1,3 @@
-function readTextFile(file) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    var allText = "";
-    rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4) {
-            if (rawFile.status === 200 || rawFile.status == 0) {
-                var allText = rawFile.responseText;
-                addBlogPost(file, "lskdjf", allText);
-                console.log(allText);
-            }
-        }
-    };
-    rawFile.send(allText);
-}
-
-function readDirectory(file) {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", file, false); // false for synchronous request
-    xmlHttp.send(null);
-    var ret = xmlHttp.responseText;
-    var fileList = ret.split("\n");
-    for (i = 0; i < fileList.length; i++) {
-        var fileinfo = fileList[i].split(" ");
-        alert(fileinfo[1]);
-        if (fileinfo[0] == "201:") {
-            alert(fileinfo[1]);
-            document.write(fileinfo[1] + "<br>");
-            document.write('<img src="' + file + fileinfo[1] + '"/>');
-        }
-    }
-
-}
-
 function addBlogPost(title, time, text) {
     let blogPost = document.createElement("div");
     blogPost.className = "blog-post";
@@ -62,7 +28,26 @@ function addBlogPost(title, time, text) {
     document.getElementById("blog").append(blogPost);
 }
 
-addBlogPost("asdf", "sdlkfj", "sdlfkj");
+function readTextFile(file) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    var allText = "";
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4) {
+            if (rawFile.status === 200 || rawFile.status == 0) {
+                var allText = rawFile.responseText;
+                lines = allText.split("\n");
+                addBlogPost(lines[0], lines[1], lines[2]);
+                console.log(allText);
+            }
+        }
+    };
+    rawFile.send(allText);
+}
 
-readTextFile("blog");
-readDirectory("blog");
+// Adding posts to html.
+let i = 0;
+while (i < 10) {
+    readTextFile("blog/" + i);
+    i++;
+}
