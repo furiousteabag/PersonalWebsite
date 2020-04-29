@@ -25,12 +25,14 @@ function addBlogPost(title, time, text) {
     blogPost.append(blogHeader);
     blogPost.append(blogContent);
 
+
     document.getElementById("blog").append(blogPost);
 }
 
 function readTextFile(file) {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
+
     var allText = "";
     rawFile.onreadystatechange = function() {
         if (rawFile.readyState === 4) {
@@ -45,9 +47,16 @@ function readTextFile(file) {
     rawFile.send(allText);
 }
 
+
+
+
+
+
+
+
 // Adding posts to html.
-let i = 0;
-while (i < 10) {
+let i = 10;
+while (i > 0) {
     readTextFile("blog/" + i);
-    i++;
+    i--;
 }
