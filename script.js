@@ -1,8 +1,15 @@
+/**
+ * Adding blog post to the page.
+ * Args:
+ *     title (string).
+ *     time (string).
+ *     text (string).
+ */
 function addBlogPost(title, time, text) {
     let blogPost = document.createElement("div");
     blogPost.className = "blog-post";
 
-    // Header.
+    /** Creating post header. */
     let blogHeader = document.createElement("div");
     blogHeader.className = "blog-header";
 
@@ -17,26 +24,35 @@ function addBlogPost(title, time, text) {
     blogHeader.append(blogHeaderTitle);
     blogHeader.append(blogHeaderTime);
 
-    // Post.
+    /** Creating post content. */
     let blogContent = document.createElement("div");
     blogContent.innerHTML = text;
 
-    // Merging elements.
+    /** Merging header and content to post. */
     blogPost.append(blogHeader);
     blogPost.append(blogContent);
-
 
     document.getElementById("blog").append(blogPost);
 }
 
+/**
+ * Getting blog post from web server and
+ * calling addBlogPost function to place
+ * it on page.
+ * Args:
+ *     file (string): path to file.
+ */
 function readTextFile(file) {
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
+    rawFile.open("GET", file, true);
 
     var allText = "";
+
     rawFile.onreadystatechange = function() {
+        // If operation finished.
         if (rawFile.readyState === 4) {
-            if (rawFile.status === 200 || rawFile.status == 0) {
+            // 200 -- request succeeded.
+            if (rawFile.status === 200) {
                 var allText = rawFile.responseText;
                 lines = allText.split("\n");
                 addBlogPost(lines[0], lines[1], lines[2]);
@@ -54,7 +70,13 @@ function readTextFile(file) {
 
 
 
-// Adding posts to html.
+
+
+
+
+
+
+/** Reading all numbered file from directory blog. */
 let i = 10;
 while (i > 0) {
     readTextFile("blog/" + i);
