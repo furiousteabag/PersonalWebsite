@@ -1,30 +1,31 @@
 {
-  "name": "asmirnov",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SmirnovAlexander/PersonalWebsite.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SmirnovAlexander/PersonalWebsite/issues"
-  },
-  "homepage": "https://github.com/SmirnovAlexander/PersonalWebsite#readme",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "cookie-session": "^1.4.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "passport": "^0.4.1",
-    "passport-vkontakte": "^0.3.3"
-  }
+    "name": "asmirnov",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SmirnovAlexander/PersonalWebsite.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/SmirnovAlexander/PersonalWebsite/issues"
+    },
+    "homepage": "https://github.com/SmirnovAlexander/PersonalWebsite#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cookie-session": "^1.4.0",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "passport": "^0.4.1",
+        "passport-vkontakte": "^0.3.3",
+        "prettier": "^2.0.5"
+    }
 }
