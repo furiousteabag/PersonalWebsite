@@ -48,7 +48,7 @@ function readTextFile(file) {
 
     var allText = "";
 
-    rawFile.onreadystatechange = function() {
+    rawFile.onreadystatechange = function () {
         // If operation finished.
         if (rawFile.readyState === 4) {
             // 200 -- request succeeded.
@@ -62,19 +62,6 @@ function readTextFile(file) {
     };
     rawFile.send(allText);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /** Reading all numbered file from directory blog. */
 let i = 10;
