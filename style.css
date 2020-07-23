@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(rgba(238, 174, 202, 1), rgba(148, 187, 233, 1));
+    background: linear-gradient(#283048, #859398);
     background-attachment: fixed;
     padding-bottom: 6em;
 }
@@ -18,16 +18,17 @@ body {
     /* ); */
 
     background: rgba(0, 0, 0, 0.7);
+    justify-content: space-between;
 }
 
-.links {
+.element {
     margin: 10px;
     display: flex;
     flex-direction: column;
-    border: solid rgba(201, 52, 235) 1px;
+    border: solid rgba(201, 52, 235) 3px;
     border-radius: 10px;
     padding: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .links-buttons {
@@ -43,15 +44,6 @@ body {
     background: rgba(201, 52, 235);
 }
 
-.blog {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    padding: 10px;
-    border: solid rgba(201, 52, 235) 1px;
-    border-radius: 10px;
-}
-
 .blog-header {
     display: flex;
     justify-content: space-between;
@@ -64,7 +56,7 @@ body {
 .blog-post {
     margin: 10px;
     padding: 10px;
-    border: solid rgba(201, 52, 235, 0.3) 1px;
+    border: solid rgba(201, 52, 235, 0.3) 2px;
     justify-content: flex-end;
     border-radius: 10px;
 }
