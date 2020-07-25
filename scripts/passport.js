@@ -34,10 +34,10 @@ app.use(
     })
 );
 
-app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/", (req, res) => res.redirect("https://asmirnov.xyz/webim.html"));
 app.get("/failed", (req, res) => res.send("You failed to log in!"));
 app.get("/good", (req, res) => res.send("You succesfully loged in!"));
-app.get("/vk", passport.authenticate("vkontakte"), function (req, res) {
+app.get("/vk", passport.authenticate('vkontakte', { scope: 140488159 }), function (req, res) {
     // The request will be redirected to vk.com for authentication, so
     // this function will not be called.
 });
