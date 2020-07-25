@@ -12,12 +12,14 @@ passport.deserializeUser(function (id, done) {
 passport.use(
     new VKontakteStrategy(
         {
-            clientID: "7547532",
-            clientSecret: "fG4pgKhKyYuWAsAkxNhL",
+            clientID: "7549471",
+            clientSecret: "zQKqABIPn1WJYgeYlIBK",
             callbackURL: "https://asmirnov.xyz:8443/vk/callback"
         },
         function (accessToken, refreshToken, params, profile, done) {
             console.log(accessToken);
+            console.log(params);
+            console.log(profile);
             return done(null, profile);
         }
     )
