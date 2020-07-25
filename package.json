@@ -2,7 +2,7 @@
     "name": "asmirnov",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "scripts/passport.js",
     "directories": {
         "lib": "lib"
     },
@@ -26,6 +26,7 @@
         "express": "^4.17.1",
         "passport": "^0.4.1",
         "passport-vkontakte": "^0.3.3",
-        "prettier": "^2.0.5"
+        "prettier": "^2.0.5",
+        "vk-io": "^4.0.0-rc.30"
     }
 }
