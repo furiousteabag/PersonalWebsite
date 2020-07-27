@@ -12,12 +12,11 @@ var certificate = fs.readFileSync(
 );
 var credentials = { key: privateKey, cert: certificate };
 
-// Requiring libraries.
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const cookieSession = require("cookie-session");
+const cookieParser = require("cookie-parser");
 require("./passport-setup.js");
 
 const app = express();
@@ -27,25 +26,25 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(
-    cookieSession({
-        name: "webim-session",
-        keys: ["key1", "key2"]
-    })
-);
+app.use(cookieParser());
 
 app.get("/", (req, res) => res.redirect("https://asmirnov.xyz/webim.html"));
 app.get("/failed", (req, res) => res.send("You failed to log in!"));
 app.get("/good", (req, res) => res.send("You succesfully loged in!"));
-app.get("/vk", passport.authenticate('vkontakte', { scope: 140488159 }), function (req, res) {
-    // The request will be redirected to vk.com for authentication, so
-    // this function will not be called.
-});
+app.get(
+    "/vk",
+    passport.authenticate("vkontakte", { scope: 140488159 }),
+    function (req, res) {
+    }
+);
 app.get(
     "/vk/callback",
     passport.authenticate("vkontakte", { failureRedirect: "/failed" }),
     function (req, res) {
-        res.redirect("/good");
+        console.log(req.user);
+        res.cookie('access_token', req.user)
+        console.log("------------");
+        res.redirect("/");
     }
 );
 app.get("/logout", (req, res) => {
