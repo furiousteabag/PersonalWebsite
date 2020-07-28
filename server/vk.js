@@ -56,7 +56,7 @@ async function getFriendsCredentials(n) {
 }
 
 getUserCredentials().catch(console.log);
-getFriendsCredentials(3).catch(console.log);
+getFriendsCredentials(5).catch(console.log);
 
 function getRandomElems(arr, n) {
     var result = new Array(n),
